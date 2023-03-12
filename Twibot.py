@@ -7,13 +7,14 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import time,random
 
 # Your login data and the keyword you want to search for in Twitter
 username = "youraccount"
 password = "yourpass"
-searchTerm = "whatyouwannasearch"
-sq=['comment text1','comment text2']
+searchTerm = "caf"
+sq=['#لقجع_فاسد','#lekjaa_corrupt']
 
 
 class TwitterBot:
@@ -24,7 +25,7 @@ class TwitterBot:
         chrome_options=Options()
         chrome_options.add_argument('incognito')
         chrome_options.add_argument('disable-extensions')
-        self.bot = webdriver.Chrome(chrome_options=chrome_options)
+        self.bot = webdriver.Chrome(ChromeDriverManager().install())
         self.bot.maximize_window()
 
     def login(self):
